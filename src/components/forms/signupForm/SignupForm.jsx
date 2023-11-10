@@ -43,9 +43,9 @@ function SignupForm() {
       <img
         src="/Assets/signin-assets/SideImage.png"
         alt="sign in or register image"
-        className={Form.sideimg}
+        className={`${Form.sideimg} max-lg:hidden`}
       />
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className="max-lg:w-full">
         <div>
           <h1>Create an account</h1>
           <p>Enter your details below</p>

@@ -1,18 +1,17 @@
 import React from "react";
-import rating from "./rating.module.css";
 import { AiFillStar } from "react-icons/ai";
 
 function Rating() {
   return (
-    <div className={rating.ratingbox}>
-      <div>
+    <div className=" flex justify-between">
+      <div className="flex items-center text-base ratng-gold">
         <AiFillStar />
         <AiFillStar />
         <AiFillStar />
         <AiFillStar />
         <AiFillStar />
       </div>
-      <span style={{ color: "grey" }}>(65)</span>
+      <span className="text-slate-400 text-xs">(65)</span>
     </div>
   );
 }

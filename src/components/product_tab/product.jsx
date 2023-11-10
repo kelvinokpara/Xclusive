@@ -75,7 +75,7 @@ const Product = ({
   }
 
   return (
-    <div className={styles.product_tab}>
+    <div className={` ${styles.product_tab}`}>
       <div className={styles.tab_main}>
         {/* <div className={styles.top_right_icon_container}>
               <div className={styles.top_right_icon}>
@@ -83,8 +83,6 @@ const Product = ({
               </div>
             </div> */}
         <span className={styles.top_right_icon}>
-          <span className={styles.tr_icon}>{prod_icon ? prod_icon : "x"}</span>
-
           {isFyp && (
             <span
               className={styles.tr_icon}
@@ -117,7 +115,7 @@ const Product = ({
           )}
         </span>
         <Link to={`/products/:${id}`}>
-          <img src={product_img} alt="" />
+          <img src={product_img} alt="" className=" w-20" />
         </Link>
         <button
           onClick={() => {
@@ -130,12 +128,17 @@ const Product = ({
         </button>
       </div>
 
-      <div className={styles.tab_desc}>
-        <h6>{desc ? desc : "Product description"}</h6>
-        <p>
-          {price ? price : "Product price"}
-          <span>{prod_former_price ? prod_former_price : ""}</span>
+      <div className="flex flex-col gap-3">
+        <h6 className="font-poppins text-xs font-medium m-0">
+          {desc ? desc : "Product description"}
+        </h6>
+        <p className="font-poppins text-xs font-medium m-0 text-redHue flex gap-2">
+          ${price ? price : "Product price"}
+          <span className="text-slate-500 decoration-dashed">
+            {prod_former_price ? `$${prod_former_price}` : ""}
+          </span>
         </p>
+
         {prod_rating ? prod_rating : ""}
       </div>
     </div>

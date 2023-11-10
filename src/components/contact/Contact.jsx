@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <main className={contact.main}>
       {/* Main section start  */}
-      <div className={contact.dir}>
+      <div className="flex gap-2 p-4">
         <p>Home</p>
         <p>/</p>
         <p>Contact</p>

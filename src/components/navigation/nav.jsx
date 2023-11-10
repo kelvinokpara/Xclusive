@@ -25,7 +25,7 @@ function Nav() {
       </div>
 
       {/* navbar start */}
-      <nav>
+      <nav className="relative z-10">
         <NavLink to="/">
           <img
             src="../Assets/lodo black.png"
@@ -56,71 +56,73 @@ function Nav() {
         <div>
           <div className={styles.searchDiv}>
             <input type="search" placeholder="What are you looking for?" />
-            <BsSearch className={styles.nav_search_icon} />
+            <BsSearch className={`${styles.nav_search_icon} icon-size`} />
           </div>
 
           <NavLink to="/wishlist">
             <div className={styles.icon_container}>
-              <BsHeart className={styles.i} id="navCartId" />
+              <BsHeart className="icon-size" id="navCartId" />
               <span className={styles.count}>{wishlistLength}</span>
             </div>
           </NavLink>
 
           <NavLink to="/cart">
             <div className={styles.icon_container}>
-              <BsCart3 className={styles.i} id="navCartId" />
+              <BsCart3 className="icon-size" id="navCartId" />
               <span className={styles.count}>{cartLength}</span>
             </div>
           </NavLink>
 
           <NavLink to="/dashboard">
-            <FiUser className={styles.userIcon} id="user_icon" />
+            <FiUser
+              className={` ${styles.userIcon} icon-size`}
+              id="user_icon"
+            />
           </NavLink>
         </div>
       </nav>
       {/* navbar end */}
 
       {/* mobile nav */}
-      {dropDown && (
-        <div
-          className={`${styles.mobilenav} ${styles.menushow}`}
-          id="mobilenav"
-        >
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/contact"}>Contact</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/about"}>About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/accountscreen">Sign Up</NavLink>
-            </li>
-          </ul>
 
-          <div>
-            <div className={styles.searchDiv}>
-              <input type="search" placeholder="What are you looking for?" />
+      <div
+        className={`${
+          styles.mobilenav
+        } gap-10 transition-transform ease-out duration-200 absolute top-[-110px] z-0  ${
+          dropDown ? "translate-y-[210px]" : "translate-y-[0px]"
+        }`}
+        id="mobilenav"
+      >
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/contact"}>Contact</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/about"}>About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/accountscreen">Sign Up</NavLink>
+          </li>
+        </ul>
 
-              <BsSearch className={styles.nav_search_icon} />
-            </div>
+        <div className="">
+          <div className={styles.searchDiv}>
+            <input type="search" placeholder="What are you looking for?" />
 
-            <div id={styles.mobilenavIcons}>
-              <BsHeart className={styles.i} />
-              <BsCart3 className={styles.i} id="navCartIdMobile" />
-              <img
-                src="../Assets/user.png"
-                alt=""
-                className={styles.userIconMobile}
-                id="user_icon_mobile"
-              />
-            </div>
+            <BsSearch className={styles.nav_search_icon} />
+          </div>
+
+          <div className="flex gap-4 items-baseline justify-center">
+            <BsHeart className="text-lg" />
+            <BsCart3 className="text-lg" id="navCartIdMobile" />
+            <FiUser className="text-xl" />
           </div>
         </div>
-      )}
+      </div>
+
       {/* mobile nav  */}
     </div>
   );

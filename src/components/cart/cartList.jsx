@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../../context";
 
-const CartList = ({ img, title, price, priceSubTotal, qty }) => {
+const CartList = ({ img, title, price, priceSubTotal, id }) => {
+  const { cartData, removeCartItem, getCartData } = useContext(GlobalContext);
+  console.log(cartData);
+
+  const [qty, setQty] = useState(1);
+  // priceSubTotal((tot) => tot + price * qty);
+
+  // increment and decrement quantity
+  const plusQty = () => {
+    setQty((qty) => qty + 1);
+  };
+  const minusQty = () => {
+    setQty((qty) => qty - 1);
+  };
   return (
     <div>
       <li class="flex flex-col space-y-3 py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0">
@@ -19,24 +33,30 @@ const CartList = ({ img, title, price, priceSubTotal, qty }) => {
                 {title ?? <p>title</p>}
               </p>
               <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">
-                {price ?? <p>price</p>}
+                ${price ?? <p>price</p>}
               </p>
             </div>
 
             <div class="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
               <p class="shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-                {priceSubTotal ?? <p>priceSubTotal</p>}
+                ${price ? price * qty : <p>priceSubTotal</p>}
               </p>
 
               <div class="sm:order-1">
                 <div class="mx-auto flex h-8 items-stretch text-gray-600">
-                  <button class="flex items-center justify-center rounded-l-sm bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                  <button
+                    class="flex items-center justify-center rounded-l-sm bg-gray-200 px-4 transition hover:bg-black hover:text-white "
+                    onClick={() => minusQty()}
+                  >
                     -
                   </button>
                   <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
                     {qty}
                   </div>
-                  <button class="flex items-center justify-center rounded-r-sm bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                  <button
+                    class="flex items-center justify-center rounded-r-sm bg-gray-200 px-4 transition hover:bg-black hover:text-white"
+                    onClick={() => plusQty()}
+                  >
                     +
                   </button>
                 </div>
@@ -48,6 +68,12 @@ const CartList = ({ img, title, price, priceSubTotal, qty }) => {
             <button
               type="button"
               class="flex rounded p-2 text-center text-gray-500 transition-all duration-200 ease-in-out focus:shadow hover:text-gray-900"
+              onClick={async () => {
+                await removeCartItem(id);
+                alert("product removed from cart.");
+                console.log(id);
+                await getCartData();
+              }}
             >
               <svg
                 class="h-5 w-5"

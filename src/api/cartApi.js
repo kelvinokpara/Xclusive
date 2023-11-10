@@ -37,3 +37,14 @@ export const addToCartHandler = async ({
     return;
   }
 };
+
+export const removeCartItem = async (id) => {
+  const url = `http://localhost:3004/carts/${id}`;
+  try {
+    await axios.delete(url);
+    console.log(`data ${id} data`);
+    return;
+  } catch (err) {
+    console.log(err.message);
+  }
+};

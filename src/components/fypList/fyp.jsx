@@ -13,15 +13,15 @@ function Fyp() {
   useEffect(() => {
     getProductsReq();
   }, []);
-  console.log(products);
+  // console.log(products);
 
   return (
-    <section>
+    <section className="section">
       <div className={styles.wishlist_cta}>
         <h5>Just for you (4)</h5>
         <button>See All</button>
       </div>
-      <div className={`${styles.product_tabs} product_tabs`} id="product_tabs">
+      <div className="prod-con">
         {products &&
           products.map((data) => (
             <Product
@@ -32,8 +32,8 @@ function Fyp() {
               id={data.id}
               title={data.title}
               price={data.price}
-              product_img={data.product_img}
-              desc={data.desc}
+              product_img={data.image}
+              desc={data.title}
               isFyp={true}
               isWishlist={false}
             />

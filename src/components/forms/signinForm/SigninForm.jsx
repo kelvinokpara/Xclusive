@@ -10,7 +10,7 @@ function SigninForm() {
       <img
         src="/Assets/signin-assets/SideImage.png"
         alt="sign in or register image"
-        className={Form.sideimg}
+        className={`${Form.sideimg} max-lg:hidden`}
       />
       <form>
         <div>

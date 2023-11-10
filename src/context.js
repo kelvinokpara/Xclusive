@@ -7,6 +7,7 @@ import {
   addToWishlistHandler,
   getWishlist,
   removeWishlist,
+  removeCartItem,
   getProductDataById,
 } from "./api";
 const GlobalContext = React.createContext();
@@ -83,6 +84,7 @@ const Provider = ({ children }) => {
     getProductsReq,
     deleteWishItem: removeWishlist,
     removeWishlist,
+    removeCartItem,
     getProductById: getSingleProduct,
   };
   return (

@@ -12,12 +12,16 @@ function Footer() {
           <div>
             <h5>Subscribe</h5>
             <p>Get 10% off your first order</p>
-            <div>
-              <input type="email" placeholder="Enter your email" />
+            <div className="group border border-white w-52 mt-4 px-2 py-3 rounded-md text-white flex gap-2 items-center">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full bg-transparent outline-none "
+              />
               <img
                 src="../Assets/icon-send.png"
                 alt=""
-                className={styles.footer_email_submit}
+                className="group-hover:translate-x-2 trans1"
               />
             </div>
           </div>
@@ -77,7 +81,7 @@ function Footer() {
           </div>
         </div>
         <p className={styles.copyright_text}>
-          <span>&copy</span> Copyright Rimel 2022. All right reserved
+          <span>&copy;</span> Copyright Rimel 2022. All right reserved
         </p>
       </footer>
       {/* <!-- footer end --> */}

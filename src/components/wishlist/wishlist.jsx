@@ -16,12 +16,12 @@ function Wishlist() {
 
   console.log(wishlistData);
   return (
-    <section>
+    <section className="section">
       <div className={styles.wishlist_cta}>
         <h5>Wishlist ({wishlistData.length})</h5>
         <button>Move All To Bag</button>
       </div>
-      <div className={`${styles.product_tabs} product_tabs`} id="product_tabs">
+      <div className={`prod-con`}>
         {wishlistData && wishlistData.length > 0 ? (
           wishlistData.map((data) => (
             <Product
@@ -40,8 +40,6 @@ function Wishlist() {
           <h2 style={{ textAlign: "center" }}>No products in Wishlist.</h2>
         )}
       </div>
-
-      {console.log(wishlistData)}
     </section>
   );
 }

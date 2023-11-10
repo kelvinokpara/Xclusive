@@ -1,24 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../context";
 import CartList from "./cartList";
 
 const Cart = ({ checkout }) => {
-  const { cartData } = useContext(GlobalContext);
-  console.log(cartData);
+  const { cartData, removeCartItem, getCartData } = useContext(GlobalContext);
+  // const [priceTotal, setPriceTotal] = useState(0);
 
+  console.log(cartData);
+  // let priceArr = [];
+  // cartData.map((data) => priceArr.push(data.price));
+  // const tot = priceArr.reduce((prev, acc) => acc + prev);
+  // console.log(tot, "totalprice");
   return (
     <div>
-      <section class=" bg-gray-100 py-5 sm:py-10 lg:py-15">
-        <div class="mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-center">
-            <h1 class="text-2xl font-semibold text-gray-900">Your Cart</h1>
+      <section className=" bg-gray-100 py-5 sm:py-10 lg:py-15">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center">
+            <h1 className="text-2xl font-semibold text-gray-900">Your Cart</h1>
           </div>
 
-          <div class="mx-auto mt-8 max-w-2xl md:mt-12">
-            <div class="bg-white shadow">
-              <div class="px-4 py-6 sm:px-8 sm:py-10">
-                <div class="flow-root">
-                  <ul class="-my-8">
+          <div className="mx-auto mt-8 max-w-2xl md:mt-12">
+            <div className="bg-white shadow">
+              <div className="px-4 py-6 sm:px-8 sm:py-10">
+                <div className="flow-root">
+                  <ul className="-my-8">
                     {/* cart list mapping */}
                     {cartData && cartData.length !== undefined ? (
                       cartData.map((data) => (
@@ -27,8 +32,8 @@ const Cart = ({ checkout }) => {
                           img={data.product_img}
                           title={data.title}
                           price={data.price}
-                          priceSubTotal={data.price}
-                          qty={data.qty}
+                          // priceSubTotal={() => setPriceTotal}
+                          id={data.id}
                         />
                       ))
                     ) : (
@@ -37,34 +42,38 @@ const Cart = ({ checkout }) => {
                   </ul>
                 </div>
 
-                <div class="mt-6 border-t border-b py-2">
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm text-gray-400">Subtotal</p>
-                    <p class="text-lg font-semibold text-gray-900">$399.00</p>
+                <div className="mt-6 border-t border-b py-2">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-gray-400">Subtotal</p>
+                    <p className="text-lg font-semibold text-gray-900">
+                      {cartData.map}
+                    </p>
                   </div>
-                  <div class="flex items-center justify-between">
-                    <p class="text-sm text-gray-400">Shipping</p>
-                    <p class="text-lg font-semibold text-gray-900">$8.00</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-gray-400">Shipping</p>
+                    <p className="text-lg font-semibold text-gray-900">$8.00</p>
                   </div>
                 </div>
-                <div class="mt-6 flex items-center justify-between">
-                  <p class="text-sm font-medium text-gray-900">Total</p>
-                  <p class="text-2xl font-semibold text-gray-900">
-                    <span class="text-xs font-normal text-gray-400">USD</span>{" "}
+                <div className="mt-6 flex items-center justify-between">
+                  <p className="text-sm font-medium text-gray-900">Total</p>
+                  <p className="text-2xl font-semibold text-gray-900">
+                    <span className="text-xs font-normal text-gray-400">
+                      USD
+                    </span>{" "}
                     408.00
                   </p>
                 </div>
 
-                <div class="mt-6 text-center">
+                <div className="mt-6 text-center">
                   <button
                     type="button"
-                    class="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
+                    className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                     onClick={() => checkout(true)}
                   >
                     Checkout
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
+                      className="group-hover:ml-8 ml-4 h-6 w-6 transition-all"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"

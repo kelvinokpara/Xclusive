@@ -68,7 +68,7 @@ nav > div > img {
 
 .userIcon {
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
 }
 .icon_container {
@@ -149,20 +149,24 @@ nav > div > img {
 }
 
 .mobilenav_icons img {
-  width: 22px;
+  width: 2px;
 }
 
 .searchDiv {
   position: relative;
   width: minmax(50%, 80%);
+  padding: 6px 20px 6px 10px;
+  background-color: #f5f5f5;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .searchDiv input {
-  padding: 6px 20px 6px 10px;
+  background-color: transparent;
   font-size: 13px;
   width: 100%;
   border: none;
-  background-color: #f5f5f5;
 }
 
 .nav_search_icon {
@@ -285,13 +289,7 @@ nav > div > img {
   }
 
   .nav_search_icon {
-    font-size: 13px;
-    position: absolute;
-    width: 20px;
-    top: 0;
-    bottom: 0;
-    padding-top: 5px;
-    right: 10px;
+    font-size: 25px;
   }
 
   /* nav end */
@@ -300,10 +298,15 @@ nav > div > img {
 @media screen and (min-width: 1204px) {
   .searchDiv {
     position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
 
   .searchDiv input {
     padding: 6px 30px 6px 10px;
     font-size: 14px;
+    outline: none;
+    appearance: none;
   }
 }

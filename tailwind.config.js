@@ -1,11 +1,19 @@
 // @type {import('tailwindcss').Config}
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        goldHue: "#FFAD33",
+        redHue: "#db4444",
+        greenHue1: "#0F6",
+      },
+      fontFamily: {
+        poppins: "Poppins",
+        inter: "Inter, sans-serif",
+      },
+    },
   },
-  corePlugins: {
-    preflight: false,
-  },
+
   plugins: [],
 };
